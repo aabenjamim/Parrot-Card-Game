@@ -56,5 +56,7 @@ function virarCarta(elemento){
     imagemSome.classList.add('escondido')
     imagemAparece.classList.remove('escondido')
 
-    console.log(imagem)
+
+    console.log(imagemSome)
+    console.log(imagemAparece)
  }
