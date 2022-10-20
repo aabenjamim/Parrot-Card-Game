@@ -40,9 +40,9 @@ body{
     width: 100px;
 }
 
-/*.escondido{
+.escondido{
     display:none;
-}*/
+}
 
 @media (max-width: 614px){
     .titulo{
