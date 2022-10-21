@@ -22,8 +22,6 @@ const listaImagens = ['bobrossparrot.gif', 'explodyparrot.gif', 'fiestaparrot.gi
 	return Math.random() - 0.5; 
 }
 
-console.log(listaEmbaralhada)
-
 function distribuirCartas(){
     const mesa = document.querySelector('.mesa-jogo')
 
@@ -34,8 +32,6 @@ function distribuirCartas(){
     }
 
     let listaNovaEmbaralhada = listaNova.sort(comparador)
-
-    console.log(listaNovaEmbaralhada)
 
     for(let i = 0; numeroDeCartas > i; i++){
         mesa.innerHTML += `
@@ -55,7 +51,31 @@ function distribuirCartas(){
 
 distribuirCartas()
 
+const lista = [];
+
 function virarCarta(elemento){
     elemento.classList.add('transicao')
+    lista.push(elemento)
+
+    if(lista.length===2){
+        setTimeout(desvirarCarta, 2000)
+    }
  }
-cd 
+
+ function desvirarCarta(){
+
+    const pos1 = lista[0].innerHTML
+    const pos2 = lista[1].innerHTML
+
+    if(pos1 !== pos2){
+        while(lista.length!==0){
+            const tudo = document.querySelector('.transicao')
+            tudo.classList.remove('transicao')
+            lista.shift()
+        }
+    } if(pos1 === pos2){
+        while(lista.length!==0){
+            lista.shift()
+        }
+    }
+ }
