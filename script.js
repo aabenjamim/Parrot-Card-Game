@@ -39,9 +39,15 @@ function distribuirCartas(){
 
     for(let i = 0; numeroDeCartas > i; i++){
         mesa.innerHTML += `
-        <div class="carta" onclick="virarCarta(this)">
-            <img src="./midia/imagens/back.png" class="back">
-            <img src="./midia/imagens/${listaNovaEmbaralhada[i]}" class="front escondido">
+        <div class="carta">
+            <div class="container" onclick="virarCarta(this)">
+                <div  class="back">
+                    <img src="./midia/imagens/back.png">
+                </div>
+                <div class="front">
+                    <img src="./midia/imagens/${listaNovaEmbaralhada[i]}">
+                </div>    
+            </div>
         </div>
         `
     }
@@ -50,13 +56,6 @@ function distribuirCartas(){
 distribuirCartas()
 
 function virarCarta(elemento){
-    const imagemSome = elemento.querySelector('.back')
-    const imagemAparece = elemento.querySelector('.front')
-
-    imagemSome.classList.add('escondido')
-    imagemAparece.classList.remove('escondido')
-
-
-    console.log(imagemSome)
-    console.log(imagemAparece)
+    elemento.classList.add('transicao')
  }
+cd 
