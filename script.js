@@ -58,7 +58,7 @@ function virarCarta(elemento){
     lista.push(elemento)
 
     if(lista.length===2){
-        setTimeout(desvirarCarta, 2000)
+        setTimeout(desvirarCarta, 1000)
     }
  }
 
@@ -69,8 +69,7 @@ function virarCarta(elemento){
 
     if(pos1 !== pos2){
         while(lista.length!==0){
-            const tudo = document.querySelector('.transicao')
-            tudo.classList.remove('transicao')
+            lista[0].classList.remove('transicao')
             lista.shift()
         }
     } if(pos1 === pos2){
