@@ -6,7 +6,7 @@ function PerguntarNumeroDeCartas(){
     const listaNumeroCartas = [4, 6, 8, 10, 12, 14]
 
     while ( listaNumeroCartas.indexOf(numeroDeCartas) == -1) {
-        numeroDeCartas = Number(prompt("Com quantas cartas deseja jogar?"))
+        numeroDeCartas = Number(prompt("Com quantas cartas deseja jogar?\nUtilize números pares entre 4 e 14"))
     }
 
 }
@@ -52,14 +52,22 @@ function distribuirCartas(){
 distribuirCartas()
 
 const lista = [];
+let jogadas = 0;
+
+let cartasAbertas = 0;
+
+const paresCartas = [];
 
 function virarCarta(elemento){
     elemento.classList.add('transicao')
     lista.push(elemento)
 
+    jogadas++
+
     if(lista.length===2){
         setTimeout(desvirarCarta, 1000)
     }
+
  }
 
  function desvirarCarta(){
@@ -73,8 +81,31 @@ function virarCarta(elemento){
             lista.shift()
         }
     } if(pos1 === pos2){
+
+        cartasAbertas += 2;
+
         while(lista.length!==0){
             lista.shift()
         }
+
+        FimDeJogo() 
+    }
+
+
+ }
+
+ function FimDeJogo(){
+    if(cartasAbertas===numeroDeCartas){
+        alert(`Você ganhou em ${jogadas} jogadas!`)
     }
  }
+
+//  function Recomecar(){
+//     const recomecar = prompt('Gostaria de reiniciar o jogo?\nResponda com "sim" ou "não", escrito dessa maneira')
+
+//     if(recomecar === 'sim'){
+//         mesa.innerHTML = " "
+//         return PerguntarNumeroDeCartas();
+//     }
+// }
+ 
