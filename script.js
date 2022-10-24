@@ -19,7 +19,7 @@ const listaImagens = ['bobrossparrot.gif', 'explodyparrot.gif', 'fiestaparrot.gi
  let listaEmbaralhada = listaImagens.sort(comparador)
 
  function comparador() { 
-	return Math.random() - 0.5; 
+	return Math.random() - 0.5;
 }
 
 function distribuirCartas(){
@@ -96,16 +96,30 @@ function virarCarta(elemento){
 
  function FimDeJogo(){
     if(cartasAbertas===numeroDeCartas){
-        alert(`Você ganhou em ${jogadas} jogadas!`)
+        alert(`Você ganhou em ${jogadas} jogadas com ${relogio} segundos!`)
+        Recomecar()
     }
  }
 
-//  function Recomecar(){
-//     const recomecar = prompt('Gostaria de reiniciar o jogo?\nResponda com "sim" ou "não", escrito dessa maneira')
+ let relogio = 0;
 
-//     if(recomecar === 'sim'){
-//         mesa.innerHTML = " "
-//         return PerguntarNumeroDeCartas();
-//     }
-// }
- 
+ setInterval(Relogio, 1000);
+
+ function Relogio(){
+    relogio++
+    document.querySelector(".relogio").innerHTML = relogio;
+ }
+
+ function Recomecar(){
+    let recomecar = prompt('Gostaria de reiniciar o jogo?\nResponda com "sim" ou "não"')
+
+    while (recomecar != 'sim' && recomecar != 'não'){
+        recomecar = prompt('Gostaria de reiniciar o jogo?\nResponda com "sim" ou "não"')
+    }
+
+    if(recomecar == 'sim'){
+        location.reload()
+    } if (recomecar == 'não') {
+        alert('Valeu e até mais!')
+    }
+}

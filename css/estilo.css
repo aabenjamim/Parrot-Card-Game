@@ -16,6 +16,7 @@ body{
     display: flex;
     justify-content: center;
     text-align: center;
+    position: relative;
 }
 
 .mesa-jogo{
@@ -72,6 +73,20 @@ body{
     top: 22px;
 }
 
+.relogio{
+    width: 90px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: white;
+    background-color: #75B79E;
+    position: absolute;
+    top: 0px;
+    right: 45px;
+}
+
 @media (max-width: 614px){
     .titulo{
         font-size: 36px;
@@ -79,5 +94,11 @@ body{
 
     body{
         padding: 0 20px;
+    }
+
+    .relogio{
+        width: 45px;
+        height: 30px;
+        font-size: 25px;
     }
 }
